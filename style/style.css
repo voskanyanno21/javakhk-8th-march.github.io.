@@ -21,7 +21,6 @@ position: absolute;
 }
  /* Основные стили для блока Лилит */
     #message{
-        font-size: 20px;
         color: white;
     }
     .accordion {
