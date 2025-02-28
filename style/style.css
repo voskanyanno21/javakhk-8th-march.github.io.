@@ -1,0 +1,670 @@
+    /* Основные стили для блока Лилит */
+    #message{
+        font-size: 20px;
+        color: white;
+    }
+    .accordion {
+        margin: 20px auto;
+        width: 90%; /* Ширина аккордеона */
+        max-width: 600px; /* Максимальная ширина */
+    }
+.accordion-content p{
+    padding: 6px;
+}
+    .accordion-item {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 100px;
+    }
+
+    .accordion-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Распределяем элементы по ширине */
+        padding: 10px;
+        background-color: #4a4248;
+        color: white;
+        cursor: pointer;
+    }
+
+    .accordion-icon {
+        font-size: 24px;
+        font-weight: bold;
+        background-color: #6c5663;
+        padding: 3px;
+        display: flex   ;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+
+    .accordion-header.active .accordion-icon {
+        transform: rotate(45deg); /* Поворачиваем плюс на 45 градусов, чтобы получился крестик */
+    }
+    .avatar {
+        width: 100px; /* Ширина аватара */
+        height: 100px; /* Высота аватара */
+        border-radius: 50%; /* Круглая форма */
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .avatar img {
+        width: 100%; /* Ширина изображения */
+        height: 100%; /* Высота изображения */
+        object-fit: cover; /* Обтяжка изображения */
+    }
+
+    .accordion-content {
+        color: #ffffff;
+        background-color: #6c5663;
+        max-height: 0; /* Начальное значение max-height */
+        overflow: hidden; /* Скрываем содержимое, если оно выходит за пределы */
+        transition: max-height 0.3s ease; /* Плавный переход для max-height */
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Применяем анимацию к блоку Лилит */
+    .lilit-block {
+        animation: pulse 2s infinite; /* Бесконечная анимация */
+    }
+
+    /* Останавливаем анимацию после нажатия */
+    .lilit-block.active {
+        animation: none;
+    }
+    .swiper-slide p {
+        font-family: serif;
+    }
+    .name{
+        font-family: serif;
+    }
+    .lilit-block {
+        position: relative;
+        width: 300px; /* Фиксированная ширина блока */
+        height: 400px; /* Фиксированная высота блока */
+        perspective: 1000px; /* Добавляем перспективу для 3D-эффекта */
+        margin: 50px auto; /* Центрируем блок и добавляем отступ сверху и снизу */
+        cursor: pointer; /* Курсор в виде указателя */
+    }
+    .block_img_text p {
+        font-family: serif;
+    }
+    /* Контейнер для переворота */
+    .lilit-block .flip-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d; /* Сохраняем 3D-пространство */
+        transition: transform 0.6s ease; /* Плавная анимация переворота */
+    }
+    .p-text_one{        font-weight: 500;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 20px;
+            color: white;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            }
+
+    .p_text_wrapper{
+        border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+        }
+    /* Стили для передней и задней сторон */
+    .lilit-block .flip-front,
+    .lilit-block .flip-back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden; /* Скрываем обратную сторону */
+        border-radius: 15px; /* Закругленные углы */
+        overflow: hidden; /* Обрезаем содержимое */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+    }
+
+    /* Передняя сторона (фото) */
+    .lilit-block .flip-front {
+        background-color: #fff; /* Фон */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lilit-block .flip-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Сохраняем пропорции изображения */
+    }
+
+    /* Задняя сторона (текст) */
+    .lilit-block .flip-back {
+        background-color: #4a4248; /* Фон */
+        color: white; /* Цвет текста */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotateX(180deg); /* Переворачиваем заднюю сторону по вертикали */
+        text-align: center;
+        font-size: 18px;
+    }
+
+    /* Эффект переворота при наведении (только для десктопов) */
+    @media (min-width: 769px) {
+        .lilit-block:hover .flip-container {
+            transform: rotateX(180deg); /* Переворачиваем блок по вертикали */
+        }
+    }
+
+    /* Эффект переворота при нажатии (для мобильных устройств) */
+    .lilit-block.active .flip-container {
+        transform: rotateX(180deg); /* Переворачиваем блок по вертикали */
+    }
+    
+    .burger-menu {
+        display: none; /* По умолчанию скрыто */
+        justify-content: center;
+    align-items: center;
+    gap: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 101;
+        opacity: 0; /* Начальная прозрачность */
+        transition: opacity 0.3s ease; /* Плавное появление */
+    }
+
+    .burger-icon {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        position: relative;
+    }
+
+    .burger-icon::before,
+    .burger-icon::after {
+        content: '';
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .burger-icon::before {
+        top: -8px;
+    }
+
+    .burger-icon::after {
+        top: 8px;
+    }
+    .burger-menu.visible {
+        opacity: 1; /* Показываем бургер-меню */
+    }
+    /* Стили для мобильного списка имен */
+    .mobile-names-list {
+        display: none; /* По умолчанию скрыто */
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #4a4248;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+    }
+
+    .mobile-names-list .name {
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s, transform 0.3s;
+        margin: 0;
+    }
+
+    .mobile-names-list .name:hover {
+        color: #ffcc00;
+        transform: translateX(10px);
+    }
+
+    /* Показываем бургер-меню и мобильный список на маленьких экранах */
+    @media (max-width: 768px) {
+        .burger-menu {
+            display: block;
+        }
+
+        .mobile-names-list.active {
+            display: flex;
+        }
+    }
+    .rara{
+        font-size: 10px;
+    }
+    .block_img_text {
+        display: flex;
+        flex-direction: row;
+        column-gap: 40px;
+        align-items: center;
+        padding: 20px;
+        background: linear-gradient(145deg, #4a4248, #3D3339);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .all_charcter {
+        margin: 300px 30px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        border: 1px solid black;
+        padding: 100px;
+        background-color: rgb(83, 64, 70);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .all_charcter::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        z-index: 1;
+        animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .all_charcter p {
+        position: relative;
+        z-index: 2;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .all_charcter p {
+        background: linear-gradient(45deg, #ffcc00, #ff6699);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+        background-color: #3D3339;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+    }
+
+    body {
+        font-family: serif;
+        background-color: #3D3339;
+        margin: 0 40px;
+    }
+    .title_header {
+        font-family: 'Aguafina Script', cursive; /* Применяем шрифт Aguafina Script */
+        font-size: 30px;
+        color: white;
+        text-align: left;
+        margin: 10px 0;
+
+    }
+
+    .nachalo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto 10px auto;
+    }
+
+    .image-container {
+        position: relative;
+        text-align: center;
+    }
+
+    .img_one {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .title_img {
+        font-family: serif;
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        top: 30%;
+        left: 105%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+    }
+
+    .overlay_text {
+        color: #8a7676;
+        font-family: 'Akronim', cursive; /* Применяем шрифт Akronim */
+        font-size: 11em;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    /* Стили для слайдера и списка имен */
+    .content-wrapper {
+        display: flex;
+        gap: 20px;
+        margin-top: 50px;
+        align-items: flex-start;
+        margin: 0px 0 190px 0;
+    }
+
+    .names-list {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        margin-left: 20px;
+        padding: 20px;
+        background: #4a4248;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .name {
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s, transform 0.3s;
+        margin: 0;
+    }
+
+    .name:hover {
+        color: #ffcc00;
+        transform: translateX(10px);
+    }
+
+    .slider-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .swiper-container {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .swiper-slide {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: #4a4248;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease;
+    }
+
+    .swiper-slide:hover {
+        transform: scale(1.02);
+    }
+
+    .swiper-slide img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .rara{
+        display: none;
+    }
+    .swiper-slide p {
+        width: calc(100% - 320px);
+        font-size: 20px;
+        color: white;
+        text-align: left;
+    }
+
+    /* Стили для кнопок навигации */
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: #ffcc00;
+        border-radius: 50%;
+        color: #3D3339;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+        background-color: #e6b800;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* Медиазапросы */
+    @media (max-width: 768px) {
+        .title_img {
+            position: static;
+            transform: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .names-list {
+            margin-left: 0;
+        }
+
+        .swiper-slide {
+            flex-direction: column;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .swiper-slide p {
+            width: 100%;
+            text-align: center;
+        }
+
+        .slider-container {
+            flex-direction: column;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static;
+            margin-top: 20px;
+        }
+    }
+    @media (max-width: 480px) {
+        @media (max-width: 480px) {
+            .swiper-slide p {
+                font-family: serif;
+                font-size: 16px; /* Фиксированный размер шрифта */
+                text-align: center; /* Выравнивание по центру */
+                margin-top: 10px; /* Отступ сверху */
+                line-height: 1.5; /* Улучшаем читаемость текста */
+            }
+        
+            .rara {
+                display: initial;
+                font-size: 18px;
+                font-weight: 900;
+            }
+        
+            body {
+                background-color: #3D3339;
+                margin: 0 10px;
+            }
+        
+            .title_header {
+                font-size: 24px; /* Уменьшаем размер шрифта заголовка */
+            }
+        
+            .all_charcter {
+                margin: 100px 10px; /* Уменьшаем отступы */
+                font-size: 20px; /* Уменьшаем размер шрифта */
+                padding: 20px; /* Уменьшаем внутренние отступы */
+            }
+        
+            .overlay_text {
+                color: #9a5f7d;
+                font-size: 4em;
+                line-height: 18px;
+                top: 23%;
+            }
+        
+            .title_img {
+                font-size: 16px; /* Уменьшаем размер текста рядом с изображением */
+                margin-top: 10px; /* Уменьшаем отступ сверху */
+                display: none;
+            }
+        
+            .content-wrapper {
+                flex-direction: column; /* Меняем направление на вертикальное */
+                margin: 20px 0; /* Уменьшаем отступы */
+            }
+        
+            .names-list {
+                width: 100%; /* Занимаем всю ширину экрана */
+                margin-left: 0; /* Убираем отступ слева */
+                display: none;
+                padding: 10px; /* Уменьшаем внутренние отступы */
+            }
+        
+            .name {
+                font-size: 16px; /* Уменьшаем размер шрифта имен */
+            }
+        
+            .slider-container {
+                width: 100%; /* Занимаем всю ширину экрана */
+                margin: 10px 0; /* Уменьшаем отступы */
+            }
+        
+            .swiper-slide {
+                flex-direction: column; /* Меняем направление на вертикальное */
+                padding: 10px; /* Уменьшаем внутренние отступы */
+            }
+        
+            .swiper-slide img {
+                width: 100%; /* Занимаем всю ширину слайда */
+                height: 350px; /* Фиксированная высота */
+                object-fit: cover; /* Сохраняем пропорции и заполняем область */
+                border-radius: 10px; /* Закругляем углы */
+            }
+        
+            .swiper-slide p {
+                width: 100%; /* Занимаем всю ширину слайда */
+                text-align: center; /* Выравниваем текст по центру */
+                margin-top: 10px; /* Добавляем отступ сверху */
+            }
+        
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 30px; /* Уменьшаем размер кнопок */
+                height: 30px; /* Уменьшаем размер кнопок */
+            }
+        
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                font-size: 16px; /* Уменьшаем размер иконок кнопок */
+            }
+        
+            .block_img_text {
+                display: flex;
+                flex-direction: column;
+                column-gap: 40px;
+                align-items: center;
+                padding: 20px;
+                background: linear-gradient(145deg, #4a4248, #3D3339);
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
